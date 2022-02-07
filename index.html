@@ -14,24 +14,25 @@
   background-color: #000000;
   border: 4px solid #e6e6e6;
   height: 180px;
-  padding: 20px;
-  font-size: 35px;
+  padding: 20px 20px 20px 20px;
+  font-size: 40px;
+  font-family: monaco, monospace;
   text-align: center;
   border-radius: 10%;
 }
 
 .grid-container-0 {
   display: grid;
-  grid-gap: 10px 10px;
+  grid-row-gap: 10px;
   grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
   background-color: #ffffff;
-  padding: 50px 70px 40px 70px;
+  padding: 50px 70px 40px 80px;
 }
 
 .grid-item-00 {
   background-color: #2eb82e;
   padding: 10px;
-  font-size: 18px;
+  font-size: 20px;
   color: #ffffff;
   font-family: monaco, monospace;
   text-align: center;
@@ -41,10 +42,9 @@
 .grid-item-01 {
   background-color: #b3b3b3;
   padding: 10px;
-  font-size: 18px;
+  font-size: 20px;
   color: #ffffff;
   font-family: monaco, monospace;
-  font-family: ;
   text-align: center;
   border-radius: 10%;
 }
@@ -52,7 +52,7 @@
 .grid-item-02 {
   background-color: #ffd11a;
   padding: 10px;
-  font-size: 18px;
+  font-size: 20px;
   color: #ffffff;
   font-family: monaco, monospace;
   text-align: center;
@@ -68,7 +68,6 @@ padding: 10px;
 </style>
 </head>
 <body>
-<center>  
 <div class="grid-container-0">
   <div class="grid-item-00">C</div>
   <div class="grid-item-00">L</div>
@@ -86,7 +85,6 @@ padding: 10px;
   <div class="grid-item-02">O</div>
   <div class="grid-item-01">W</div>  
 </div>
-  </center>
 
 <div class="grid-container">
   <div class="grid-item" onclick="myFunction1()">S</div>
