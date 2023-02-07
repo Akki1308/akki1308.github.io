@@ -2,237 +2,326 @@
 <html>
 <head>
 <style>
-.grid-container {
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900');
+
+$font: 'Lato', sans-serif;
+$big: 'Montserrat', sans-serif;
+
+$red: #EF2F3C;
+$white: #F6F4F3;
+$blue: #276FBF;
+$dark: #183059;
+$yellow: #F0A202;
+
+$star: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  
+html {
   display: grid;
-  grid-gap: 10px 10px;
-  grid-template-columns: auto auto auto auto auto;
-  background-color: #ffffff;
-  padding: 40px 60px 70px 60px;
+  min-height: 100%;
 }
 
-.grid-item {
-  background-color: #000000;
-  border: 4px solid #e6e6e6;
-  height: 150px;
-  padding-top: 80px;
-  padding-bottom: 40px;
-  font-size: 60px;
-  font-family: monaco, monospace;
-  text-align: center;
-  border-radius: 13%;
-}
-
-.grid-container-0 {
+body {
   display: grid;
-  grid-column-gap: 10px;
-  grid-template-columns: 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px 40px;
-  background-color: #ffffff;
-  padding: 50px 50px 40px 100px;
+  background: $dark;
 }
 
-.grid-item-00 {
-  background-color: #2eb82e;
-  padding: 10px;
-  font-size: 18px;
-  color: #ffffff;
-  font-family: monaco, monospace;
+.container {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  width: 650px;
+  height: 480px;
+}
+
+h1 {
+  font-family: $font;
   text-align: center;
-  border-radius: 10%;
+  margin-top: 2em;
+  font-size: 1em;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: $white;
 }
 
-.grid-item-01 {
-  background-color: #b3b3b3;
-  padding: 10px;
-  font-size: 18px;
-  color: #ffffff;
-  font-family: monaco, monospace;
+#timer {
+  color: $white;
   text-align: center;
-  border-radius: 10%;
+  text-transform: uppercase;
+  font-family: $font;
+  font-size: .7em;
+  letter-spacing: 5px;
+  margin-top: 25%;
 }
 
-.grid-item-02 {
-  background-color: #ffd11a;
+.days, .hours, .minutes, .seconds {
+  display: inline-block;
+  padding: 20px;
+  width: 100px;
+  border-radius: 5px;
+}
+
+.days {
+  background: $red;
+}
+
+.hours {
+  background: $white;
+  color: $dark;
+}
+
+.minutes {
+  background: $blue;
+}
+
+.seconds {
+  background: $yellow;
+  .numbers {
+   
+  }
+}
+
+.numbers {
+  font-family: $big;
+  color: $dark;
+  font-size: 4em;
+}
+
+.white {
+  position: absolute;
+  background: $white;
+  height: 85px;
+  width: 75px;
+  left: 30%;
+  top: 2%;
+  .triangle {
+    border-bottom: 14px solid $white;
+  }
+  .string {
+    background: $white;
+    border: 1px solid $white;
+  }
+}
+
+.red {
+  position: absolute;
+  background: $red;
+  left: 18%;
+  top: 9%;
+  height: 65px;
+  width: 70px;
+  .triangle {
+    border-bottom: 14px solid $red;
+  }
+  .string {
+    background: $red;
+    border: 1px solid $red;
+  }
+}
+
+.blue {
+  position: absolute;
+  background: $blue;
+  height: 80px;
+  width: 80px;
+  left: 60%;
+  top: 5%;
+  .triangle {
+    border-bottom: 14px solid $blue;
+  }
+  .string {
+    background: $blue;
+    border: 1px solid $blue;
+  }
+}
+
+.balloon {
+  border: 1px solid #000;
+  border-radius: 50% 50% 50% 50%/ 40% 40% 60% 60%;
+  z-index: 2;
+}
+
+.eye {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  top: 40%;
+  left: 22%;
+  background: #000;
+  border-radius: 50%;
+  &:after {
+    content: '';
+    left: 35px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #000;
+    position: absolute;
+  }
+}
+
+.mouth {
+  position:absolute;
+  top: 45%;
+  left: 43%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.happy {
+  border: 2px solid;
+  border-color: transparent #000 #000 transparent;
+  transform: rotate(45deg);
+}
+
+.triangle {
+  position: absolute;
+  left: 40%;
+  bottom: -10%;
+  width: 0;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+}
+
+.string {
+  position: absolute;
+  height: 70px;
+  width: 1px;
+  left: 48%;
+  top: 100%;
+  z-index: -1;
+}
+
+.star {
+  width: 20px;
+  height: 20px;
+  background: $white;
+  -webkit-clip-path: $star;
+  clip-path: $star;
+}
+
+.star-red {
+  width: 30px;
+  height: 30px;
+  margin-left: 51px;
+  margin-top: -5px;
+  background: $red;
+  -webkit-clip-path: $star;
+  clip-path: $star;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  text-transform: uppercase;
   padding: 10px;
-  font-size: 18px;
-  color: #ffffff;
-  font-family: monaco, monospace;
-  text-align: center;
-  border-radius: 10%;
-}
-
-p {
-color: #8c8c8c;
-font-size: 20px;
-font-family: monaco, monospace;
-padding: 10px;
+  font-family: $font;
+  font-size: 0.7em;
+  p {
+    letter-spacing: 3px;
+    color: $red;
+  }
+  a {
+    color: $white;
+    text-decoration: none;
+    &:hover {
+      color: $blue;
+    }
+  }
 }
 </style>
 </head>
 <body>
-<div class="grid-container-0">
-  <div class="grid-item-00">C</div>
-  <div class="grid-item-00">L</div>
-  <div class="grid-item-01">I</div>  
-  <div class="grid-item-02">C</div>
-  <div class="grid-item-00">K</div>
-  <div class="grid-item-01">C</div>  
-  <div class="grid-item-02">E</div>
-  <div class="grid-item-02">L</div>
-  <div class="grid-item-02">L</div>
-  <div class="grid-item-00">S</div>
-  <div class="grid-item-01">B</div>
-  <div class="grid-item-00">E</div>
-  <div class="grid-item-00">L</div>
-  <div class="grid-item-02">O</div>
-  <div class="grid-item-01">W</div>  
+<div class="container">
+  <div class="balloon white">
+    <div class="star-red"></div>
+  <div class="face">
+    <div class="eye"></div>
+    <div class="mouth happy"></div>
+  </div>
+  <div class="triangle"></div>
+  <div class="string"></div>
 </div>
 
-<div class="grid-container">
-  <div class="grid-item" onclick="myFunction1()">S</div>
-  <div class="grid-item" onclick="myFunction2()">H</div>
-  <div class="grid-item" onclick="myFunction3()">U</div> 
-  <div class="grid-item" onclick="myFunction4()">B</div>
-  <div class="grid-item" onclick="myFunction5()">H</div>
-  <div class="grid-item" onclick="myFunction6()">J</div> 
-  <div class="grid-item" onclick="myFunction7()">A</div>
-  <div class="grid-item" onclick="myFunction8()">N</div>
-  <div class="grid-item" onclick="myFunction9()">A</div>
-  <div class="grid-item" onclick="myFunction10()">M</div>
-  <div class="grid-item" onclick="myFunction11()">D</div>
-  <div class="grid-item" onclick="myFunction12()">I</div>
-  <div class="grid-item" onclick="myFunction13()">W</div>
-  <div class="grid-item" onclick="myFunction14()">A</div>
-  <div class="grid-item" onclick="myFunction15()">S</div>
-  <div class="grid-item" onclick="myFunction16()">S</div>
-  <div class="grid-item" onclick="myFunction17()">E</div>
-  <div class="grid-item" onclick="myFunction18()">J</div>
-  <div class="grid-item" onclick="myFunction19()">A</div>
-  <div class="grid-item" onclick="myFunction20()">L</div>
-  
+<div class="balloon red">
+  <div class="star"></div>
+  <div class="face">
+    <div class="eye"></div>
+    <div class="mouth happy"></div>
+  </div>
+  <div class="triangle"></div>
+  <div class="string"></div>
 </div>
 
-<center><p>Made with Love :)</p>
+<div class="balloon blue">
+  <div class="star"></div>
+  <div class="face">
+    <div class="eye"></div>
+    <div class="mouth happy"></div>
+  </div>
+  <div class="triangle"></div>
+  <div class="string"></div>
+</div>
+  <div id="timer"></div>
+  <h1>Happy Birthday Sejal!!<br><br><br>Congrats on wasting <div id="birthdate"></div>seconds on earth</h1>
+</div>
+
 
 <script>
-function myFunction1() {
-const collection = document.getElementsByClassName("grid-item");
-collection[0].style.background = "#2eb82e";
-collection[0].style.color = "#ffffff";
-}
+const year = new Date().getFullYear();
+const fourthOfJuly = new Date(year, 1,8).getTime();
+const fourthOfJulyNextYear = new Date(year + 1, 1, 8).getTime();
+const birthdate = new Date(1999,1,8).getTime();
+const month = new Date().getMonth();
 
-function myFunction2() {
-const collection = document.getElementsByClassName("grid-item");
-collection[1].style.background = "#b3b3b3";
-collection[1].style.color = "#ffffff";
-}
+// countdown
+let timer = setInterval(function() {
 
-function myFunction3() {
-const collection = document.getElementsByClassName("grid-item");
-collection[2].style.background = "#b3b3b3";
-collection[2].style.color = "#ffffff";
-}
+  // get today's date
+  const today = new Date().getTime();
 
-function myFunction4() {
-const collection = document.getElementsByClassName("grid-item");
-collection[3].style.background = "#b3b3b3";
-collection[3].style.color = "#ffffff";
-}
+  // get the difference
+  let diff;
+  if(month > 6) {
+    diff = fourthOfJulyNextYear - today;
+  } else {
+    diff = fourthOfJuly - today;
+  }
+  
+  if(today > fourthOfJuly )
+   {
+   if(month > 6) {
+    diff = -1*(fourthOfJulyNextYear - today);
+  } else {
+    diff = -1*(fourthOfJuly - today);
+  }   
+  }
 
-function myFunction5() {
-const collection = document.getElementsByClassName("grid-item");
-collection[4].style.background = "#b3b3b3";
-collection[4].style.color = "#ffffff";
-}
 
-function myFunction6() {
-const collection = document.getElementsByClassName("grid-item");
-collection[5].style.background = "#ffd11a";
-collection[5].style.color = "#ffffff";
-}
 
-function myFunction7() {
-const collection = document.getElementsByClassName("grid-item");
-collection[6].style.background = "#b3b3b3";
-collection[6].style.color = "#ffffff";
-}
 
-function myFunction8() {
-const collection = document.getElementsByClassName("grid-item");
-collection[7].style.background = "#b3b3b3";
-collection[7].style.color = "#ffffff";
-}
+  // math
+  let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-function myFunction9() {
-const collection = document.getElementsByClassName("grid-item");
-collection[8].style.background = "#2eb82e";
-collection[8].style.color = "#ffffff";
-}
+  // display
+  document.getElementById("timer").innerHTML =
+    "<div class=\"days\"> \
+  <div class=\"numbers\">" + days + "</div>days</div> \
+<div class=\"hours\"> \
+  <div class=\"numbers\">" + hours + "</div>hours</div> \
+<div class=\"minutes\"> \
+  <div class=\"numbers\">" + minutes + "</div>minutes</div> \
+<div class=\"seconds\"> \
+  <div class=\"numbers\">" + seconds + "</div>seconds</div> \
+</div>";
 
-function myFunction10() {
-const collection = document.getElementsByClassName("grid-item");
-collection[9].style.background = "#b3b3b3";
-collection[9].style.color = "#ffffff";
-}
-
-function myFunction11() {
-const collection = document.getElementsByClassName("grid-item");
-collection[10].style.background = "#b3b3b3";
-collection[10].style.color = "#ffffff";
-}
-
-function myFunction12() {
-const collection = document.getElementsByClassName("grid-item");
-collection[11].style.background = "#b3b3b3";
-collection[11].style.color = "#ffffff";
-}
-
-function myFunction13() {
-const collection = document.getElementsByClassName("grid-item");
-collection[12].style.background = "#b3b3b3";
-collection[12].style.color = "#ffffff";
-}
-
-function myFunction14() {
-const collection = document.getElementsByClassName("grid-item");
-collection[13].style.background = "#2eb82e";
-collection[13].style.color = "#ffffff";
-}
-
-function myFunction15() {
-const collection = document.getElementsByClassName("grid-item");
-collection[14].style.background = "#ffd11a";
-collection[14].style.color = "#ffffff";
-}
-
-function myFunction16() {
-const collection = document.getElementsByClassName("grid-item");
-collection[15].style.background = "#2eb82e";
-collection[15].style.color = "#ffffff";
-}
-
-function myFunction17() {
-const collection = document.getElementsByClassName("grid-item");
-collection[16].style.background = "#2eb82e";
-collection[16].style.color = "#ffffff";
-}
-
-function myFunction18() {
-const collection = document.getElementsByClassName("grid-item");
-collection[17].style.background = "#2eb82e";
-collection[17].style.color = "#ffffff";
-}
-
-function myFunction19() {
-const collection = document.getElementsByClassName("grid-item");
-collection[18].style.background = "#2eb82e";
-collection[18].style.color = "#ffffff";
-}
-
-function myFunction20() {
-const collection = document.getElementsByClassName("grid-item");
-collection[19].style.background = "#2eb82e";
-collection[19].style.color = "#ffffff";
-}
+ document.getElementById("birthdate").innerHTML = Math.floor((today - birthdate)/1000);
+}, 1000);
 </script>
 </body>
 </html>
